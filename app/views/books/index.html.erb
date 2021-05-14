@@ -1,0 +1,22 @@
+<%= form_with model:@book, local:true do |f| %>
+
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit '投稿' %>
+
+<% end %>
+
+
+<div class="craate-all">
+<% @books.each do |book| %>
+  <tr>
+    <th><%= book.title %></th>
+    <th><%= book.body %> <%= link_to "Edit", edit_book_path(book.id) %>
+    </tr>
+  <tr>
+</div>
+<% end %>
