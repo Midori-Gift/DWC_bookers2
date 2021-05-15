@@ -1,23 +1,12 @@
-<%= form_with model:@book, local:true do |f| %>
-
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit '投稿' %>
-
-<% end %>
-
-
+<%= render 'books/list', user: @user %>
+<h3>Books</h3>
 <div class="craate-all">
 <% @books.each do |book| %>
   <tr>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
     <th><%= book.title %></th>
     <th><%= book.body %> <%= link_to "Edit", edit_book_path(book.id) %>
     <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-    </tr>
-  <tr>
+  </tr>
 </div>
 <% end %>

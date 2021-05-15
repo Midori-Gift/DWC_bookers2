@@ -11,8 +11,14 @@
 
   <body>
     <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Bookers', root_path %>
+      </li>
+      <li>
+        <%= link_to 'Users' %>
+      </li>
        <li>
-        <%= link_to '投稿フォーム', books_path %>
+        <%= link_to 'Books', books_path %>
       </li>
 
       <li>
@@ -33,5 +39,10 @@
     <% end %>
 
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+
   </body>
 </html>
