@@ -16,6 +16,7 @@
   <tr>
     <th><%= book.title %></th>
     <th><%= book.body %> <%= link_to "Edit", edit_book_path(book.id) %>
+    <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
     </tr>
   <tr>
 </div>
