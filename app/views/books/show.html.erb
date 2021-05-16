@@ -10,7 +10,7 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
     <% end %>
   <h3>New book</h3>
-  <%= form_with model: @user, local:true do |f| %>
+  <%= form_with model: @new_book, local:true do |f| %>
     <label>Title</label>
       <%= f.text_field :title %>
     <label>Opinion</label>
@@ -20,6 +20,7 @@
   </div>
 
   <div class="book-detail">
+    <p>Book detail</p>
     <p><%= @book.title %></p>
     <p><%= @book.body %></p>
   </div>
