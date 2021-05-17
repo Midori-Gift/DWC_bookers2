@@ -1,8 +1,25 @@
-<h1>Editing Book</h1>
-<%= form_with model:@book,  local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Update Book' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto";>
+      <h1>Editing Book</h1>
+        <%= form_with model:@book,  local:true do |f| %>
+          <h4>Title</h4>
+          <%= f.text_field :title %>
+          <h4>Opinion</h4>
+          <%= f.text_area :body %>
+          <table class="table mx-auto" style="width: -400px;">
+            <tr>
+              <td><%= f.submit 'Update Book' %></td>
+            </tr>
+          </table>
+          <table class="table mx-auto" style="width: -400px;">
+            <tr>
+              <td><%= link_to "Show", book_path(@book.id) %></td>
+              <td>|</td>
+              <td><%= link_to "Back", books_path %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>

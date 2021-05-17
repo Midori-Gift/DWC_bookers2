@@ -24,7 +24,7 @@
               <%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark mx-4' %>
             </li>
             <li class="nav-item">
               <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
@@ -35,9 +35,20 @@
             <li class="nav-item">
               <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
+            
+            
             <% else %>
+             <li class="nav-item">
+              <%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %>
+            </li>
             <li class="nav-item">
-              <%= link_to "signin", new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Home', new_user_registration_path, class: 'nav-link text-dark mx-4' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "about", about_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "signup", new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "login", new_user_session_path, class: 'nav-link text-dark' %>
@@ -48,13 +59,17 @@
         </div>
       </nav>
     </header>
+    <body>
+  <%= render 'layouts/notifications' %>
+  <%= yield %>
+</body>
     <main class="mb-auto">
     <%= yield %>
     </main>
     <footer>
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
         </div>
       </div>

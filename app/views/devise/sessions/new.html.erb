@@ -23,4 +23,8 @@
   </div>
 <% end %>
 
+if login
+redirect_to book_path(@book.id)
+else
 <%= render "devise/shared/links" %>
+end

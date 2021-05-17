@@ -7,7 +7,7 @@
         <h5>name</h5>
         <h4 class="profile-name"><%= user.name %></h4>
         <h5>introduction</h5>
-      
+
          <% if user.id == current_user.id %>
           <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
           <% end %>
@@ -20,7 +20,7 @@
           <div class="col-lg-4">
           <label>Opinion</label>
             <%= f.text_area :body %>
-            <%= f.submit :"Create Book" %>
+            <%= f.submit :"Create Book", class: "btn btn-secondary" %>
           </div>
         <% end %>
       </div>
