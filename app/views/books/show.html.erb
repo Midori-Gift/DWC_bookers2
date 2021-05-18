@@ -25,11 +25,23 @@
           </table>
         <% end %>
       </div>
-    
+
      <div class="col-lg-8">
-      <p>Book detail</p>
-      <p><%= @book.title %></p>
-      <p><%= @book.body %></p>
+    <!--<table ="table, mx-auto, py-5">
+      <tr>
+      <td><= flash[:notice] %></td>
+      </tr>
+    </table>        -->
+
+    <table class="table">
+      <tr>
+        <td>Book detail</td>
+      </tr>
+      <tr>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+      </tr>
+    </table>
       </div>
     </div>
   </div>

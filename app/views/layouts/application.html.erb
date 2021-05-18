@@ -35,8 +35,7 @@
             <li class="nav-item">
               <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
-            
-            
+
             <% else %>
              <li class="nav-item">
               <%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %>
@@ -58,12 +57,16 @@
           </div>
         </div>
       </nav>
+
+
     </header>
-    <body>
-  <%= render 'layouts/notifications' %>
-  <%= yield %>
-</body>
+
     <main class="mb-auto">
+
+      <p><%= flash[:notice]%></p>
+
+      <p><%= flash[:alert]%></p>
+
     <%= yield %>
     </main>
     <footer>

@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto";>
+
+        <% if @book.errors.any? %>
+            <%= @book.errors.count %>件のエラーが発生しました
+            <% @book.errors.full_messages.each do |message| %>
+            <%= message %>
+         <% end %>
+        <% end %>
+
       <h1>Editing Book</h1>
-        <%= form_with model:@book,  local:true do |f| %>
+        <%= form_with model:@book.id,  local:true do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>
