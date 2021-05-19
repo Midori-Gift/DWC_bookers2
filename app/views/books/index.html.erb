@@ -3,13 +3,16 @@
     <div class="col-lg-4">
       <%= render "books/list", user: @user, book: @book %>
     </div>
-        <% if @book.errors.any? %>
-            <%= @book.errors.count %>件のエラーが発生しました
-            <% @book.errors.full_messages.each do |message| %>
+
+          <% if @book.errors.any? %>
+          <%= @book.errors.count %>
+          <% @book.errors.full_messages.each do |message| %>
+            error
             <%= message %>
-         <% end %>
+          <% end %>
         <% end %>
-        
+
+
     <div class="col-lg-8">
         <h3>Books</h3>
       <table class="table">

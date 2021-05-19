@@ -10,30 +10,24 @@
         <% end %>
 
     <h2>User info</h2>
-      <table class="table">
         <%= form_with model:@user, local:true do |f| %>
-        <tr>
-          <td>Name</td>
-        </tr>
-        <tr>
-          <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></td>
-        </tr>
-          <tr>
-            <td>ProfileImage</td>
-          </tr>
-          <tr>
-            <td><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
-            </tr>
-            <tr>
-              <td>introduction</td>
-              <tr>
-              <td><%= f.text_area :body %></td>
-              </tr>
-            </tr>
-            <tr>
-            <td><%= f.submit "Update User" %></td>
-          </tr>
-          </table>
+
+          Name
+
+
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+
+
+            ProfileImage
+
+
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
+
+              introduction
+
+              <%= f.text_area :introduction %>
+            <%= f.submit "Update User" %>
         <% end %>
     </div>
   </div>

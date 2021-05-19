@@ -5,6 +5,7 @@
   <h5>name</h5>
   <h4 class="profile-name"><%= user.name %></h4>
   <h5>introduction</h5>
+  <%= user.introduction%>
 
    <% if user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-secondary" %></p>

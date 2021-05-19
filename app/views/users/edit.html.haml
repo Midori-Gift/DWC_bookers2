@@ -1,0 +1,26 @@
+.container
+  .row
+    .col
+      - if @user.errors.any?
+        = @user.errors.count
+        件のエラーが発生しました
+        - @user.errors.full_messages.each do |message|
+          = message
+      %h2 User info
+      = form_with model:@user, local:true do |f|
+        Name
+        
+        
+        \#{f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"}
+        
+        
+        ProfileImage
+        
+        
+        \#{f.attachment_field :profile_image, placeholder: "プロフィール画像"}
+        
+        
+        introduction
+        
+        \#{f.text_area :introduction}
+        \#{f.submit "Update User"}
