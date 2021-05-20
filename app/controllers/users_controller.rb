@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = current_user
+    @book = Book.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
     @book_all = Book.all
 
@@ -18,11 +19,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    ##if current_user == @user.id
-    ##render :edit
-    ##else
-    ##redirect_to books_path
-    ##end
+    if current_user.id != @user.id
+      redirect_to user_path(current_user.id)
+    end
 
   end
 

@@ -1,25 +1,44 @@
 
 
-<nav class="navbar navbar-light bg-none">
   <div class="navbar-brand" href="#!">
-    <h1>welcome to Bookers !!</h1>
+    <div calss="container">
+      <div class="row">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+                <h1>welcome to
+                  <i class="fas fa-book">
+                  </i>
+                  Bookers !!
+                </h1>
+
+            </br>
+            <nav class="navbar navbar-light bg-none mx-auto ">
+              <div class="navbar-brand" href="#!">in
+              <i class="fas fa-book"></i>
+              Bookers
+              </div>
+            </nav>
+
+
+              <div class="navbar-brand" href="#!">you can share and exchange your opinions , inpressions , and emotions</div>
+              <p>
+              <div class="navbar-brand" href="#!">about various books!</div>
+              </p>
+
+
+
+            <div calass="row">
+            <p class="mx-auto">
+            <button type="button" class="btn btn-primary"><%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %></button>
+            </p>
+            </div>
+
+
+            <p class="mx-auto">
+            <button type="button" class="btn btn-primary"><%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-dark' %></button>
+            </p>
+
+
+      </div>
     </div>
-</nav>
-
-<nav class="navbar navbar-light bg-none ">
-  <div class="navbar-brand" href="#!">in Bookers</div>
-</nav>
-
-<nav class="navbar navbar-light bg-none">
-  <div class="navbar-brand" href="#!">you can share and exchange your opinions , inpressions , and emotions</div>
-</nav>
-
-
-<nav class="navbar navbar-light bg-none">
-  <div class="navbar-brand" href="#!">about various books!</div>
-</nav>
-
-
-<button type="button" class="btn btn-primary"><%= link_to "signin", new_user_registration_path, class: 'nav-link text-dark' %></button>
-
-<button type="button" class="btn btn-primary"><%= link_to "login", new_user_session_path, class: 'nav-link text-dark' %></button>
+  </div>
+</div>

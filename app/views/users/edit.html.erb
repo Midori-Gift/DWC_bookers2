@@ -3,7 +3,7 @@
     <div class="col">
 
           <% if @user.errors.any? %>
-            <%= @user.errors.count %>件のエラーが発生しました
+            <%= @user.errors.count %>errors
             <% @user.errors.full_messages.each do |message| %>
             <%= message %>
          <% end %>
@@ -15,17 +15,10 @@
           Name
 
 
-          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
-
-
-            ProfileImage
-
-
+          <%= f.text_field :name, autofocus: true, id:"name", placeholder:"name" %>
+            <p>ProfileImage</p>
             <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-
-
-              introduction
-
+              <p>introduction</p>
               <%= f.text_area :introduction %>
             <%= f.submit "Update User" %>
         <% end %>
