@@ -9,7 +9,7 @@
         <%= @users.introduction %>
 
          <% if @user.id == current_user.id %>
-          <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+          <p><%= link_to "", edit_user_path(@user) %></p>
           <% end %>
         <h3>New book</h3>
           <%= form_with model:@new_book, local:true do |f| %>
@@ -35,9 +35,10 @@
       </tr>
       <tr>
 
-        <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %></td>
+        <td><%= link_to user_path(@users.id), target: "" do %>
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
+        <% end %></td>
 
-        <td><%= link_to @book.title, users_path(@user.id) %></td>
         <td><%= @book.body %></td>
 
         <% if @user.id =! current_user.id %>
@@ -45,7 +46,7 @@
             <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
           <% end %>
 
-       <tr>>
+       <tr>
        <td><%= link_to @users.name, user_path(@user.id) %></td>
        </tr>
       </tr>

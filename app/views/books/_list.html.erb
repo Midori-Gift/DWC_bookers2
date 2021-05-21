@@ -5,7 +5,7 @@
         <h3>User info</h3>
         <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
         <h5>name</h5>
-        <h4 class="profile-name"><%= user.name %></h4>
+        <h4 class="profile-name"><%= current_user.name %></h4>
         <h5>introduction</h5>
         <%= @user.introduction %>
 

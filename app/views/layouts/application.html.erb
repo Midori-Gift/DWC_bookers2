@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,8 +10,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,40 +19,39 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item, text-muted">
+              <%= link_to 'Bookers', root_path, class: '' %>
+              </li>
+            
             <% if user_signed_in? %>
-             <p class="nav-item, text-muted">
-              <%= link_to 'Bookers', root_path, class: 'nav-link' %>
-            </p>
+            
             <li class="nav-item">
-              <%= link_to 'Home', user_path(current_user.id), class: 'nav-link  mx-4'  %>
+              <%= link_to 'Home', user_path(current_user.id), class: 'fas fa-home nav-link text-light'  %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', users_path, class: 'nav-link' %>
+              <%= link_to 'Users', users_path, class: 'fas fa-users nav-link text-light' %>
             </li>
             <li>
-              <%= link_to 'Books', books_path, class: 'nav-link' %>
+              <%= link_to 'Books', books_path, class: 'fas fa-book-open nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
             </li>
 
             <% else %>
 
-
-             <li class="nav-item">
-              <%= link_to 'Bookers', root_path, class: 'nav-link' %>
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'fas fa-home nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class: 'nav-link  mx-4' %>
+              <%= link_to "About", home_about_path, class: 'fas fa-link nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to "About", home_about_path, class: 'nav-link' %>
+              <%= link_to "sign up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to "sign up", new_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "login", new_user_session_path, class: 'nav-link' %>
+              <%= link_to "login", new_user_session_path, class: 'fas fa-user-plus nav-link text-light' %>
             </li>
             <% end %>
 
@@ -64,7 +64,7 @@
 
     </header>
 
-    <main class="mb-auto">
+    <main class="container px-5 px-sm-0">
 
       <p><%= flash[:notice]%></p>
 
@@ -74,9 +74,9 @@
     </main>
     <footer>
       <div class="container">
-        <div class="row no-gutters">
-          <div class="mx-auto">
-            <p>CopyRight Infratop.inc</p>
+        <div class="row">
+          <div class="col-md-3">
+          <p>CopyRight Infratop.inc</p>
         </div>
       </div>
     </footer>
