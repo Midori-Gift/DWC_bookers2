@@ -4,13 +4,16 @@
         <h3>User info</h3>
         <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
         <h5>name</h5>
-        <h4 class="profile-name"><%= @users.name %></h4>
+        <h4 class="profile-name"><%= @user.name %></h4>
         <h5>introduction</h5>
-        <%= @users.introduction %>
+        <%= @user.introduction %>
 
-         <% if @user.id == current_user.id %>
-          <p><%= link_to "", edit_user_path(@user) %></p>
+         <% if @user == current_user.id %>
+            <p><%= link_to "", edit_user_path(@user) %></p>
+            <% else %>
+              <%= link_to "", user_path(current_user.id), class: "btn fas fa-user-cog btn-secondary" %>
           <% end %>
+
         <h3>New book</h3>
           <%= form_with model:@new_book, local:true do |f| %>
            <table class="table">
@@ -27,30 +30,113 @@
         <% end %>
       </div>
 
-     <div class="col-lg-8">
 
-    <table class="table">
+
+
+
+<div class="col-md-8 offset-md-1">
+
+
+  <h2>Book detail</h2>
+
+
+
+  <table class="table">
+
+    <tbody>
+
+
+
       <tr>
-        <td>Book detail</td>
-      </tr>
-      <tr>
 
-        <td><%= link_to user_path(@users.id), target: "" do %>
-          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
-        <% end %></td>
+        <td>
 
-        <td><%= @book.body %></td>
+          <%= link_to user_path(@user.id) do %>
+          <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5" %><br />
+          <%= link_to @user.name, user_path(@user.id) %>
+        <% end %>
 
-        <% if @user.id =! current_user.id %>
-            <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-            <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+        </td>
+
+
+        <td><%= link_to @book.body, book_path(@book.id) %></td>
+
+
+        <td>より良いコードを書くためのシンプルで実践的なテクニック。</td>
+
+
+         <% if @user.id == current_user.id %>
+            <td><%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@book.id), class:"btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></td>
           <% end %>
 
-       <tr>
-       <td><%= link_to @users.name, user_path(@user.id) %></td>
-       </tr>
+
       </tr>
-    </table>
-      </div>
+
+
+
+    </tbody>
+
+
+
+
+  </table>
+
+
+
+
+</div>
+
+
+
+
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

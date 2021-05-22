@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    
-    <title>Bookers2</title>
+
+    <title>Bookers2Ver2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,21 +12,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+
+          <div class="navbar-brand">
+
+            <span><%= link_to 'Bookers', root_path, class: 'text-light' %></span>
+
+          </div>
+
+
+
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+
             <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item, text-muted">
-              <%= link_to 'Bookers', root_path, class: '' %>
-              </li>
-            
+
+
             <% if user_signed_in? %>
-            
+
             <li class="nav-item">
               <%= link_to 'Home', user_path(current_user.id), class: 'fas fa-home nav-link text-light'  %>
             </li>
@@ -73,10 +83,14 @@
     <%= yield %>
     </main>
     <footer>
-      <div class="container">
+
+
+
+      <div class="container mt-5">
         <div class="row">
-          <div class="col-md-3">
-          <p>CopyRight Infratop.inc</p>
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
         </div>
       </div>
     </footer>

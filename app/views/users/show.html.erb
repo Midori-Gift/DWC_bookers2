@@ -10,7 +10,7 @@
              <h4 class="profile-name, text-nowrap"><%= @user.name %></h4>
              <h5>introduction</h5>
              <%= @user.introduction %>
-             
+
               <% if @user.id == current_user.id %>
                <%= link_to "", edit_user_path(@user.id), class: "btn fas fa-user-cog btn-secondary" %>
               <% else %>
@@ -63,9 +63,9 @@
 
      <th></th>
 
-     <th><%= link_to user_path(@users.id), target: "" do %>
+     <th><%= link_to user_path(@user.id), target: "" do %>
 
-     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" %>
+     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "https://bookers-level2-v3-demo.herokuapp.com/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" %>
      <% end %>
      </th>
 
