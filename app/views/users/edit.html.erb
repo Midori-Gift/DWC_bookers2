@@ -1,37 +1,37 @@
 
 
-
-
-
-
-<main>
-
   <p id="notice"></p>
 
 
   <div class="container">
 
 
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %>error
+        <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+        <% end %>
+      <% end %>
+
+
   <div class="row">
+
+
+
+    
 
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
       <h2>User info</h2>
 
+
+
+
       <%= form_with model:@user, local:true do |f| %>
 
 
-      <form enctype="multipart/form-data" action="/users/44221" accept-charset="UTF-8" method="post">
+      <div class="form">
 
-
-
-
-        <input name="utf8" type="hidden" value="✓">
-
-        <input type="hidden" name="_method" value="patch">
-
-
-        <input type="hidden" name="authenticity_token" value="42IbE9+syaP18nh/nb7X3nTpRYkLsxI7qaDYWDuMI3IwJv4mvWiJaXus6r2PXm3PF0QWDpbEhEQWZ0Xt+/63fw==">
 
         <div class="form-group">
 
@@ -77,7 +77,7 @@
 
 
 
-      </form>
+      </div>
 
 
 
@@ -96,5 +96,3 @@
 
 
 
-
-</main>

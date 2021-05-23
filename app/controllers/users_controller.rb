@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
+  protect_from_forgery
 
   def show
     @user = User.find(params[:id])
-    @book = Book.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
     @book_all = Book.all
-    @users = @book.user
+    @book = @user.books
+    @new_book = Book.new
 
   end
 
   def index
     @user = current_user
+    
     @users = User.all
     @book = Book.new
     @books = Book.all
@@ -27,15 +29,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     if @user.update(user_params)
       flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user.id)
     else
       render :edit
     end
-
-
   end
 
   private

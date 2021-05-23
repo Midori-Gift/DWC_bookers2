@@ -7,13 +7,28 @@
         <h5>name</h5>
         <h4 class="profile-name"><%= current_user.name %></h4>
         <h5>introduction</h5>
-        <%= @user.introduction %>
+        <%= user.introduction %>
 
-         <% if @user.id == current_user.id %>
-          <%= link_to "", edit_user_path(@user.id), class: "btn btn-secondary" %></p>
-        <% end %>
+
+          <% if user == current_user %>
+            <%= link_to edit_user_path(user) do %>
+
+             <i class="fas fa-user-cog"></i>
+
+             <% end %>
+
+              <% else %>
+              <%= link_to user_path(current_user), class: "btn  btn-secondary" do %>
+
+              <i class="fas fa-user-cog"></i>
+
+              <% end %>
+
+          <% end %>
+
+
         <h3>New book</h3>
-        <%= form_with model:@book, local:true do |f| %>
+        <%= form_with model:book, local:true do |f| %>
           <div class="col-lg-4">
             <label>Title</label>
             <%= f.text_field :title %>

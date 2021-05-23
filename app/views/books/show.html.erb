@@ -9,9 +9,19 @@
         <%= @user.introduction %>
 
          <% if @user == current_user.id %>
-            <p><%= link_to "", edit_user_path(@user) %></p>
+            <%= link_to edit_user_path(@user) do %>
+
+             <i class="fas fa-user-cog"></i>
+
+             <% end %>
+
             <% else %>
-              <%= link_to "", user_path(current_user.id), class: "btn fas fa-user-cog btn-secondary" %>
+              <%= link_to user_path(current_user.id), class: "btn  btn-secondary" do %>
+
+              <i class="fas fa-user-cog"></i>
+
+              <% end %>
+
           <% end %>
 
         <h3>New book</h3>
@@ -53,16 +63,16 @@
 
           <%= link_to user_path(@user.id) do %>
           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5" %><br />
-          <%= link_to @user.name, user_path(@user.id) %>
-        <% end %>
+          <%=  @user.name  %>
+          <% end %>
 
         </td>
 
 
-        <td><%= link_to @book.body, book_path(@book.id) %></td>
+        <td><%= link_to @book.title, book_path(@book.id) %></td>
 
 
-        <td>より良いコードを書くためのシンプルで実践的なテクニック。</td>
+        <td><%= @book.body %></td>
 
 
          <% if @user.id == current_user.id %>

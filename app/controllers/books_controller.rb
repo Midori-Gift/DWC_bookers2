@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
-    
+
   end
 
   def show
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully updated."
       redirect_to book_path(@book.id)
     else
-      flash[:alert]
+      #flash[:alert] = "asd"
       render :edit
     end
 
