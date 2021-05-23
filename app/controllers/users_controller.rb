@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   protect_from_forgery
 
   def show
+    @users = current_user
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
     @book_all = Book.all

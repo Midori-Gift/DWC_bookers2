@@ -15,4 +15,6 @@ class User < ApplicationRecord
 
   validates :introduction, length: { maximum: 50}
 
+
+
 end
