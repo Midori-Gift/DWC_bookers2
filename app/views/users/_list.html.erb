@@ -27,6 +27,21 @@
 
         <th><%= user.introduction %></th>
 
+        <table>
+          <tr>
+            <td>follows</td>
+            <td><%= link_to follows.count, followed_path(user.id) %></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>follower</td>
+            <td><%= link_to followers.count, follower_path(user.id) %></td>
+          </tr>
+        </table>
+
+
       </tr>
 
       </tbody>

@@ -8,7 +8,16 @@ Rails.application.routes.draw do
 
   end
 
+  #resources :relations, only
+
   resources :users, only: [:show, :index, :edit, :update, :create]
 
+  resources :follower, class_name: "User", only: [:show]
+  resources :followed, class_name: "User", only: [:show]
 
+
+
+  post 'follow/:id' => 'relationships#follow', as: 'follow'
+
+  post'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 end
