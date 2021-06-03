@@ -58,7 +58,7 @@
         <td>
 
           <%= link_to user_path(book.user), target: "" do %>
-          <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5" %>
+          <%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon.jpg" %>
           <% end %>
 
         </td>
@@ -75,6 +75,8 @@
 
 
         <td><%= render "users/favorite", book: book %></td>
+
+        <td><td>コメント数：<%= book.book_comments.count %></td></td>
 
       </tr>
 
