@@ -6,7 +6,7 @@
 
 
 
-      <%= render "users/list", user: @user, book: @new_book %>
+     <%= render "users/list", user: @user, book: @new_book %>
 
 
   </div>
@@ -30,7 +30,7 @@
         <td>
 
           <%= link_to user_path(@user.id) do %>
-          <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5" %><br />
+          <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon.jpg" %><br />
           <%=  @user.name  %>
           <% end %>
 
@@ -44,8 +44,7 @@
 
         <td><%= render "users/favorite", book: @book %></td>
 
-        <td><%= @book.book_comments.count %></td>
-
+        <td>コメント数：<%= @book.book_comments.count %></td>
 
 
          <% if @user.id == current_user.id %>
@@ -66,13 +65,10 @@
   </table>
 
 
-<%= render "users/comments", book: @book, book_comment: @book_comment %>
+<%= render "users/comments", book: @book, book_comments: @book_comment %>
 
 
 </div>
-
-
-
 
     </div>
   </div>
