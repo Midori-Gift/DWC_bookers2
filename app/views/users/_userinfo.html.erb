@@ -1,0 +1,57 @@
+
+    <h2>User info</h2>
+
+
+    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
+
+    <table class="table">
+
+      <tbody>
+
+      <tr></tr>
+
+      <tr>
+
+        <th>name</th>
+
+        <th><h4 class="profile-name, text-nowrap"><%= user.name %></h4></th>
+
+      </tr>
+
+
+      <tr>
+
+        <th>introduction</th>
+
+        <th><%= user.introduction %></th>
+
+        <table>
+          <tr>
+            <td>follows</td>
+            <td><%= link_to user.follower.count, follow_user_path(user.id) %></td>
+
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>follower</td>
+            <td><%= link_to user.followed.count, follower_user_path(user.id) %></td>
+          </tr>
+        </table>
+
+
+      </tr>
+
+       <% unless current_user.id == user.id %>
+        <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class:"btn btn-danger mt-3 mb-3" %>
+        <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"btn btn-success mt-3 mb-3" %>
+        <% end %>
+        <% end %>
+
+      </tbody>
+
+    </table>
