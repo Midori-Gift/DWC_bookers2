@@ -24,7 +24,16 @@ class UsersController < ApplicationController
     if current_user.id != @user.id
       redirect_to user_path(current_user.id)
     end
+  end
 
+  def follow
+    @users = User.all
+    @user = User.find(params[:id])
+  end
+
+  def follower
+    @users = User.all
+    @user = User.find(params[:id])
   end
 
   def update

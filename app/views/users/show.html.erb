@@ -38,7 +38,7 @@
 
      <th><%= link_to user_path(@user.id), target: "" do %>
 
-     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "https://bookers-level2-v3-demo.herokuapp.com/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" %>
+     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no-image-icon.jpg" %>
      <% end %>
      </th>
 

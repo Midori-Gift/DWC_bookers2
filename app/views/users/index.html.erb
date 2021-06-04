@@ -50,20 +50,9 @@
       <td><%= user.name %></td>
 
 
-      <td><%= user.follow.count %></td>
+      <td><%= user.followed.count %></td>
 
       <td><%= user.follower.count %></td>
-
-      <% if user_signed_in? %>
-        <p>
-          <%= "id: #{user.id} email: #{user.email}" %>
-          <% if current_user.following?(user) %>
-            <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-          <% else %>
-            <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-          <% end %>
-        </p>
-        <% end %>
 
       <td>
 
@@ -71,6 +60,16 @@
 
       </td>
 
+      <td>
+
+        <% unless current_user.id == @users.id %>
+        <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+        <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+        <% end %>
+        <% end %>
+      </td>
     </tr>
 
 
