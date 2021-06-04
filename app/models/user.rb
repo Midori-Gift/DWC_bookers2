@@ -23,8 +23,11 @@ class User < ApplicationRecord
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 
-  has_many :following_user, through: :folloer, source: :followed
+
+
+  has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed,source: :follower
+
 
   def follow(user_id)
     follower.create(followed_id: user_id)
@@ -35,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def following?(user)
-    following_user.incclude?(user)
+    following_user.include?(user)
   end
 
 end

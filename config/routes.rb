@@ -12,12 +12,18 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index, :edit, :update, :create]
 
-  resources :follower, class_name: "User", only: [:show]
-  resources :followed, class_name: "User", only: [:show]
+  resources :users do
+    member do
+      get :follow
+    end
+  end
 
-
+  resources :users do
+    member do
+      get :follower
+    end
+  end
 
   post 'follow/:id' => 'relationships#follow', as: 'follow'
-
-  post'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 end
