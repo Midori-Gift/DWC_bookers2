@@ -29,6 +29,14 @@ class BooksController < ApplicationController
 
   end
 
+  def search
+    if params[:title].present?
+      @books = Book.where('title LIKE ?', "%#{params[:title]}%")
+    else
+      @books = Book.none
+    end
+  end
+
   def show
     @books = Book.all
     @book = Book.find(params[:id])
@@ -75,7 +83,6 @@ class BooksController < ApplicationController
     if @book.user_id != current_user.id
       redirect_to books_path
     end
-
   end
 
 end
