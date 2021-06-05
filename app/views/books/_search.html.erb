@@ -1,0 +1,9 @@
+    <% if user_signed_in? %>
+     <%= form_with url: search_books_path, method: :get, local: true do |f| %>
+    <%=f.text_field :title %>
+    <%= f.submit :search %>
+  <% end %>
+    <% end %>
+
+
+  

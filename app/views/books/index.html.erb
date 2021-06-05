@@ -1,14 +1,19 @@
 
 
 <div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="mx-auto mt-2 mb-4">
+    <%= render "books/search" %>
+    </div>
+    </div>
 
 
-           <% if @book.errors.any? %>
-          <%= @book.errors.count %>
-          <% @book.errors.full_messages.each do |message| %>error
-            <%= message %>
-          <% end %>
-          <% end %>
+      <% if @book.errors.any? %>
+      <%= @book.errors.count %>
+      <% @book.errors.full_messages.each do |message| %>error
+      <%= message %>
+      <% end %>
+      <% end %>
 
 
 <div class="row">
