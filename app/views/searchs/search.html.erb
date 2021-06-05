@@ -1,0 +1,12 @@
+<h1>searchs</h1>
+
+<% if @range == "User" %>
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+<% else %>
+  <% @books.each do |book| %>
+    <%= book.title %>
+    <%= book.body %>
+  <% end %>
+<% end %>

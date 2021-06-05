@@ -14,15 +14,7 @@ class ApplicationController < ActionController::Base
 
   def application
     @book.user_id = current_user.id
-    @books = Book.search(params[:search])
   end
-
-  def search
-    @book = Book.all
-    @books = @book.search(params[:search])
-  end
-
-
 
   def after_sign_in_path_for(resource)
       user_path(resource)

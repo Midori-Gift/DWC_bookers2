@@ -29,6 +29,14 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed,source: :follower
 
 
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @user = User.where("name LIKE ?", "#{words}")
+    else
+      @user = User.where("neme LIKE ?", "%#{words}%")
+    end
+  end
+
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
