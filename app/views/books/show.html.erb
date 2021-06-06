@@ -21,6 +21,8 @@
 
   <table class="table">
 
+
+
     <tbody>
 
 
@@ -64,8 +66,9 @@
 
   </table>
 
-
-<%= render "users/comments", book: @book, book_comments: @book_comment %>
+  <div class="comments-js">
+    <%= render "users/comments", book: @book, book_comments: @book_comment %>
+  </div>
 
 
 </div>
