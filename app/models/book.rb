@@ -17,11 +17,19 @@ class Book < ApplicationRecord
     #Book.where(['content LIKE ?', "%#{search}%"])
   #end
 
-  def self.looks(searches, words)
-    if searches == "perfect_match"
-      @book = Book.where("name LIKE ?", "#{words}")
-    else
-      @book = Book.where("neme LIKE ?", "%#{words}%")
+  def self.looks(search, words)
+    if search == "perfect_match"
+      @book = Book.where("title LIKE ?", "#{words}")
+
+    elsif search == "front_match"
+      @book = Book.where('title LIKE ?', "#{words}%")
+
+
+    elsif search == "back_match"
+      @book = Book.where('title LIKE ?', "%#{words}")
+
+    elsif  search == "partial_match"
+      @book = Book.where("title LIKE ?", "%#{words}%")
     end
   end
 

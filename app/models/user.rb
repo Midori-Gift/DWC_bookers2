@@ -29,11 +29,18 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed,source: :follower
 
 
-  def self.looks(searches, words)
-    if searches == "perfect_match"
+  def self.looks(search, words)
+    if search == "perfect_match"
       @user = User.where("name LIKE ?", "#{words}")
-    else
-      @user = User.where("neme LIKE ?", "%#{words}%")
+
+    elsif search == "front_match"
+      @user = User.where("name LIKE ?", "#{words}%")
+
+    elsif search == "back_match"
+      @user = User.where("name LIKE ?", "%#{words}")
+
+    elsif search == "partial_match"
+      @user = User.where("name LIKE ?", "%#{words}%")
     end
   end
 
