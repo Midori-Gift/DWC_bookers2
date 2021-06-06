@@ -79,6 +79,15 @@
       </nav>
 
     </header>
+    <div class="row">
+      <div class="mx-auto mt-2 mb-4">
+        <% if user_signed_in? %>
+
+          <%= render "books/search" %>
+
+      <% end %>
+      </div>
+    </div>
 
     <main class="container px-5 px-sm-0">
 
