@@ -76,7 +76,11 @@
         <td><%= book.body %></td>
 
 
-        <td><%= render "users/favorite", book: book %></td>
+        <td class=<%= "favo" + book.id.to_s %>>
+
+          <%= render "favorites/favorite-btn", book: book %>
+
+        </td>
 
         <td><td>コメント数：<%= book.book_comments.count %></td></td>
 
