@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @users = current_user
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
+
     @book_all = Book.all
     @book = @user.books
     @new_book = Book.new
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
     @books = Book.all
 
   end
-  
+
   def search
     if params[:name].present?
       @users = User.where('name LIKE ?', "%#{params[:name]}%")
