@@ -74,11 +74,13 @@
 
 
         <td><%= book.body %></td>
+          <td class=<%= "favo" + book.id.to_s %>>
 
 
-        <td class=<%= "favo" + book.id.to_s %>>
+          <% @all_ranks.each do |rank| %>
+          <%= render "favorites/favorite-btn", books: rank %>
+          <% end %>
 
-          <%= render "favorites/favorite-btn", book: book %>
 
         </td>
 
