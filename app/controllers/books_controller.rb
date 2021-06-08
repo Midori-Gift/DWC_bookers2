@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
-
+    @all_ranks = Book.find(Favorite.group(:book_id).order('count(book_id) desc').limit(10).pluck(:book_id))
   end
 
   def search
