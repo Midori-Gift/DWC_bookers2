@@ -1,5 +1,4 @@
 
-
 <div class="container px-5 px-sm-0">
   <div class="row">
     </div>
@@ -52,7 +51,7 @@
     </thead>
 
     <tbody>
-       <% @books.each do |book| %>
+       <% @all_ranks.each do |book| %>
 
       <tr>
 
@@ -77,10 +76,7 @@
           <td class=<%= "favo" + book.id.to_s %>>
 
 
-          <% @all_ranks.each do |rank| %>
-          <%= render "favorites/favorite-btn", books: rank %>
-          <% end %>
-
+          <%= render "favorites/favorite-btn", book: book %>
 
         </td>
 
@@ -102,6 +98,5 @@
 </div>
 
 </div>
-
 
 
