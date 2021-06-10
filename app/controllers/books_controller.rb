@@ -18,7 +18,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      @all_ranks = @books.find(Favorite.group(:book_id).order('count(book_id) desc').pluck(:book_id))
+      @all_ranks = @books.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
       render :index
     end
   end
@@ -27,8 +27,11 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
-    @all_ranks = @books.find(Favorite.group(:book_id).order('count() desc').pluck(:book_id))
+    #@all_ranks = @books.find(Favorite.group(:book_id).order('count() desc').pluck(:book_id))
+    @all_ranks = @books.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
+
+
 
   def search
     if params[:title].present?
