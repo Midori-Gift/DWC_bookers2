@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     #get :search, on: :collection
   #end
 
-get 'search' => "searchs#search"
+  get 'search' => "searchs#search"
 
 
   resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit]
@@ -40,4 +40,8 @@ get 'search' => "searchs#search"
 
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, :index]
+
 end
